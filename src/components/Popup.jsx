@@ -9,7 +9,7 @@ const Popup = () => {
     company: "",
     workingFrom: "",
     workingtill: "",
-      city: "",
+    city: "",
   });
   let { designation, company, workingFrom, workingtill, city } = state;
 
@@ -22,10 +22,12 @@ const Popup = () => {
     contextData.handleAddData(state);
     console.log(state);
   };
-
-  let handleClose = () => {
-    contextData.handlePopup();
+  let handleEdit = () => {
+    contextData.handleEdit(state);
   };
+  // let handleClose = () => {
+  //   contextData.handlePopup();
+  // };
   return (
     <div id="popipDiv">
       <form id="addForm" onSubmit={handleAdd}>
@@ -84,6 +86,8 @@ const Popup = () => {
           />
         </div>
         <div>
+          {/* <button onClick={handleEdit}>Update</button> */}
+
           <button>Add</button>
         </div>
       </form>

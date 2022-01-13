@@ -12,21 +12,34 @@ let ContextProvider = ({ children }) => {
     setPopup(!popup);
   };
   let handleDelete = datas => {
-    let newData = data.filter(item => item !== data);
+    let newData = data.filter(x => x.company !== datas);
     setData(newData);
-    data.map(details => {
-      if (details.company === datas) {
-        data.delete(datas);
-      }
-    });
   };
-
+  let handleEdit = datas => {
+    // let newData = data.map(x => {
+    //   if (x.company == datas.company) {
+    //     x.designation = datas.designation;
+    //     x.company = datas.company;
+    //     x.workingFrom = datas.workingFrom;
+    //     x.workingtill = datas.workingtill;
+    //     x.city = datas.city;
+    //   }
+    //   setData(newData);
+    // });
+  };
   let handlePopup = () => {
     setPopup(!popup);
   };
   return (
     <ContextApi.Provider
-      value={{ data, handleAddData, handlePopup, popup, handleDelete }}
+      value={{
+        data,
+        handleAddData,
+        handlePopup,
+        popup,
+        handleDelete,
+        handleEdit,
+      }}
     >
       {children}
     </ContextApi.Provider>
